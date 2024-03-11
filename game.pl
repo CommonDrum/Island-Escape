@@ -1,4 +1,16 @@
 location(cellar).
+path(cellar, beachWest).
+
+describe(cellar) :-
+    !visited(cellar),
+    write('You are in the cellar. It is dark and damp. You can see a it is full of old barrels and crates.'),
+    assert(visited(cellar)), nl.
+
+describe(cellar) :-
+    visited(cellar),
+    write('Weeee you visited the cellar'), nl.
+
+
 location(beachNorth).
 location(beachSouth).
 location(beachEast).
@@ -7,13 +19,6 @@ location(jungleEast).
 location(jungleWest).
 
 
-
-
-describe(cellar) :- write('You are in a dark, damp cellar. It seems to be empty.'), nl.
-describe(beach) :- write('You are on a sandy beach. Waves are gently lapping at the shore.'), nl.
-describe(jungle) :- write('You are in a dense jungle. The canopy above barely lets any light through.'), nl.
-
-path(cellar, beachWest).
 
 path(beachWest, cellar).
 path(beachWest, beachSouth).
@@ -41,13 +46,15 @@ path(jungleEast, jungleWest).
 
 
 
-
 move(Direction) :-
     current_location(CurrentLocation),
     path(CurrentLocation, Direction, NextLocation),
     retract(current_location(CurrentLocation)),
     asserta(current_location(NextLocation)),
     describe(NextLocation).
+
+move(_) :-
+    write('You can''t go that way.'), nl.
 
 look :-
     current_location(Location),

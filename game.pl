@@ -1,39 +1,43 @@
-description(cellar) :-
-    !visited(cellar),
-    write('You are in the cellar. It is dark and damp. You can see a it is full of old barrels and crates.'),
-    assert(visited(cellar)), nl.
+% main.pl
 
-desctiption(cellar) :-
-    write('You are in the cellar. It is dark and damp. You can see a it is full of old barrels and crates.'), nl.
+:- consult('locations.pl').
+:- consult('objects.pl').
+:- consult('items.pl').
+:- consult('description.pl').
+:- consult('inventory.pl').
 
+inspect(Object) :-
+    object(Object, Location, _, AfterInspect, _),
+    current_location(Location),
+    write(AfterInspect), nl.
 
-location(beachNorth).
-location(beachSouth).
-location(jungleSouth).
-location(jungleNorth).
-location(cellar).
+inspect(Item) :-
+    item(Item, Location, _, AfterInspect),
+    current_location(Location),
+    write(AfterInspect), nl.
 
-path(beachSouth , beachNorth).
-path(beachSouth , jungleSouth).
-path(jungleSouth , jungleNorth).
-path(beachNorth , jungleNorth).
-path(cellar, beachNorth).
-path(X,Y) :- path(Y,X).
+take(Item) :-
+    item(Item, Location, _, _),
+    current_location(Location),
+    \+ inInventory(Item),
+    assert(inInventory(Item)),
+    write('You picked up the '), write(Item), write('.'), nl.
 
-move(location) :-
-    current_location(Here),
-    path(Here, There),
-    retract(current_location(Here)),
-    assert(current_location(There)),
-    describe(There).
+move(Destination) :-
+    current_location(Current),
+    path(Current, Destination),
+    retract(current_location(Current)),
+    assert(current_location(Destination)),
+    describe(Destination).
 
 move(_) :-
-    write('You can''t go that way.'), nl.
+    write('You cannot go that way.'), nl.
 
 look :-
     current_location(Location),
     describe(Location).
 
-
 start :-
-
+    assert(current_location(beachSouth)),
+    write('Welcome to the text-based adventure game!'), nl,
+    describe(beachSouth).

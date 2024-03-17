@@ -5,6 +5,11 @@
 :- consult('items.pl').
 :- consult('description.pl').
 :- consult('inventory.pl').
+:- consult('thinking.pl').
+
+% Final game should be time limited. The limit will increase as goals are met.
+steps_remaining(50).
+current_step(0).
 
 inspect(Object) :-
     object(Object, Location, _, AfterInspect, _),

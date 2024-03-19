@@ -1,39 +1,25 @@
 describe(Location) :-
+    describe_location(Location),        % Describe the location itself.
+    describe_objects(Location),         % Describe objects at the location.
+    describe_available_paths(Location). % List paths available from this location.
 
-    describeLocation(Location),
-
-    describeObjects(Location),
-
-    describeItems(Location),
-
-    writePaths(Location).
-
-describeLocation(Location) :-
+describe_location(Location) :-
     location(Location, Description),
-    write(Description), nl.
+    write('You are at '), write(Description), nl.
 
-describeObjects(Location) :-
-    object(_, Location, BeforeInspect, _, _),
-    write(BeforeInspect), nl,
+describe_objects(Location) :-
+    (object(Name, Location, Description, _, _) ; item(Name, Location, Description, _)),
+    write(Description), write(' here ('), write(Name), write(').'), nl,
     fail.
-describeObjects(_).
+describe_objects(_).
 
-describeItems(Location) :-
-    item(Item, Location, BeforeInspect, _),
-    \+ inInventory(Item),
-    write(BeforeInspect), nl,
-    fail.
-describeItems(_):- write("").
+describe_available_paths(Location) :-
+    findall(Path, path(Location, Path), Paths),
+    write('You can go to: '), nl,
+    describe_paths(Paths).
 
-writePaths(Location) :-
-    write(Location), write(' to: '), nl,
-    describePath(Location, [Location]),
-    fail.
-writePaths(_).
-
-describePath(Location, Visited) :-
-    path(Location, Destination),
-    \+ memberchk(Destination, Visited),
-    write('- '), write(Destination), nl,
-    describePath(Destination, [Destination | Visited]).
-describePath(_, _).
+describe_paths([]).
+describe_paths([H|T]) :-
+    location(H, Description),
+    write('- '), write(H), nl,
+    describe_paths(T).

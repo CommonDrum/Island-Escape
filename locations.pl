@@ -6,9 +6,11 @@ location(jungleSouth, "123").
 location(jungleNorth, "123").
 location(cellar).
 
-path(beachSouth, beachNorth).
-path(beachSouth, jungleSouth).
-path(jungleSouth, jungleNorth).
-path(beachNorth, jungleNorth).
-path(cellar, beachNorth).
-path(X, Y) :- path(Y, X), X \= Y.
+direct_path(beachSouth, beachNorth).
+direct_path(beachSouth, jungleSouth).
+direct_path(jungleSouth, jungleNorth).
+direct_path(beachNorth, jungleNorth).
+direct_path(cellar, beachNorth).
+
+path(X, Y) :- direct_path(X, Y).
+path(X, Y) :- direct_path(Y, X).

@@ -6,6 +6,7 @@
 :- consult('description.pl').
 :- consult('inventory.pl').
 :- consult('thinking.pl').
+:- consult('crafting.pl').
 
 % Final game should be time limited. The limit will increase as goals are met.
 steps_remaining(50).

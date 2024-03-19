@@ -2,6 +2,8 @@
 
 :-dynamic(item/4).
 
+item(name, location, "description", "interaction").
+
 item(driftwood, beachSouth, 'You see a piece of driftwood on the beach.', 'The driftwood seems sturdy and could be useful.').
 item(glassBottle, beachSouth, 'A glass bottle is lying on the sand.', 'The glass bottle contains a mysterious message inside.').
 item(flintStone, _, 'You spot a small flint stone.', 'The flint stone has sharp edges and could be used to start a fire.').
@@ -13,3 +15,7 @@ item(bigLeafs, _, 'There are many bushes with big leafs.', 'The leafs are big an
 item(bottleOfUnpurifiedWater, _, _, 'The water is not safe to drink. You need to purify it first.').
 item(bottleOfPurifiedWater, _, _, 'The water is safe to drink.').
 item(textileSheet, beachSouth, 'A big textile sheet is stuck on a branch. It looks like ripped sail.', 'The sheet is big and not damaged. It sure will be useful for something.').
+item(axe, _, 'Shiny Axe!', 'The axe is sharp and looks reliable.').
+item(1, beachSouth, _, _).
+item(2, beachNorth, _, _).
+item(3, _, _, _).

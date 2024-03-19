@@ -8,9 +8,12 @@
 :- consult('thinking.pl').
 :- consult('crafting.pl').
 
-% Final game should be time limited. The limit will increase as goals are met.
+:- dynamic current_location/1.
+:- dynamic inInventory/1.
+:- dynamic steps_remaining/1.
+
 steps_remaining(50).
-current_step(0).
+boat(false, false, false, false).
 
 inspect(Object) :-
     object(Object, Location, _, AfterInspect, _),
@@ -43,7 +46,41 @@ look :-
     current_location(Location),
     describe(Location).
 
+
+commands :-
+    write('Available commands:'), nl,
+    write('inspect(Object/Item) - Inspect an object/item.'), nl,
+    write('take(Item) - Take an item.'), nl,
+    write('move(Destination) - Move to a new location.'), nl,
+    write('look - Look around the current location.'), nl,
+    write('inventory - List the items in your inventory.'), nl,
+    write('craft(Item) - Craft an item.'), nl,
+    write('commands - List available commands.'), nl.
+
 start :-
     assert(current_location(beachSouth)),
     write('Welcome to the text-based adventure game!'), nl,
-    describe(beachSouth).
+    game_loop.
+
+game_loop :-
+    steps_remaining(0),
+    write('You have run out of time! You die :('), nl,
+    !.
+
+game_loop :-
+    boat(true, true, true, true),
+    write('You have fixed the boat and escaped the island! You win!'), nl,
+    !.
+
+game_loop :-
+    steps_remaining(X),
+    Y is X - 1,
+    retract(steps_remaining(X)),
+    assert(steps_remaining(Y)),
+    write('You have '), write(Y), write(' steps remaining.'), nl,
+    current_location(Location),
+    describe(Location),
+    read(X),
+    call(X),
+    game_loop.
+

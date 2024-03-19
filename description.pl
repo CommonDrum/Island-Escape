@@ -20,6 +20,6 @@ describe_available_paths(Location) :-
 
 describe_paths([]).
 describe_paths([H|T]) :-
-    location(H, Description),
+    location(H, _),
     write('- '), write(H), nl,
     describe_paths(T).

@@ -2,16 +2,29 @@
 :- dynamic recipe/5.
 
 %recipe(itemA, itemb, [resultingthingNameList], [resultingObjectList], 'description').
-recipe(glassBottle, waterPool, [bottleOfUnpurifiedWater], [], 'You fill the glass bottle with water from the pool.').
+recipe(stick, flintstone, [axe], [], 'You attach the flint stone to the stick and create an axe.').
+
+% Raft stuff recipes.
+recipe(stick, sheet, [sail], [] ,'You attach the sheet to the stick and create a sail.').
+recipe(vine, bark, [hull], [] , 'You attach the bark to the vine and create a hull.').
+recipe(vine, leafs, [shelter], [] , 'You sew the leafs together and create a shelter.').
 recipe(bottleOfUnpurifiedWater, fire, [bottleOfPurifiedWater], [], 'You purify the water by boiling it.').
-recipe(hardStick, flintStone, [axe], [], 'You attach the flint stone to the stick and create an axe.').
-recipe(hardStick, cave, [], [fireplace], 'You gather some sticks and create a fireplace.').
-recipe(fireplace, flintStone, [], [fire], 'You set the fireplace on fire and create a fire.').
-recipe(t1, t2, [t3], [], 'Yes it is three!').
+recipe(axe, coconut, [food], [], 'You use the axe to open the coconut and create food.').
+
+% Hull recipe path.
+recipe(axe, palmTrees, [bark], [], 'You cut the palm tree and create a stick.').
+
+% Water recipe path.
+recipe(glassBottle, waterPool, [bottleOfUnpurifiedWater], [], 'You fill the glass bottle with water from the pool.').
+recipe(stick, cave, [], [fireplace], 'You gather some sticks and create a fireplace.').
+recipe(fireplace, flintstone, [], [fire], 'You set the fireplace on fire and create a fire.').
+recipe(bottleOfUnpurifiedWater, fire, [bottleOfPurifiedWater], [], 'You purify the water by boiling it.').
+
+
 
 craft(ThingNameA, ThingNameB) :-
     location_check(ThingNameA, LocationA, ThingNameB, LocationB),
-    recipe(ThingNameA, ThingNameB, ResultingthingNamesList, ResultingObjectsList, Description),
+    (recipe(ThingNameA, ThingNameB, ResultingthingNamesList, ResultingObjectsList, Description) ; recipe(ThingNameB, ThingNameA, ResultingthingNamesList, ResultingObjectsList, Description)), 
     retract_item(ThingNameA, LocationA),
     retract_item(ThingNameB, LocationB),
     add_crafted_things(ResultingthingNamesList, ResultingObjectsList),
@@ -31,6 +44,13 @@ location_check(ThingNameA, LocationA, ThingNameB, LocationB) :-
 
 location_check(_, _, _, _) :-
     write('You cannot craft these items together. They are not in the same location or your inventory.'), nl.
+
+retract_item(axe, _) :- !. % We don't want to remove the axe from the inventory.
+
+%if thing is object do not remove it from the location
+retract_item(ThingName, _) :-
+    object(ThingName, _, _, _, _),
+    !.
 
 retract_item(ThingName, Location) :-
     item(ThingName, Location, Description, Usage),

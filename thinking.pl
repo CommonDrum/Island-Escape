@@ -9,7 +9,9 @@ think :-
     to_think(Thought, Goals),
     writeln(Thought),
     add_goals(Goals),
-    retract(to_think(Thought, Goals)).
+    retract(to_think(Thought, Goals)),
+    logic,
+    !.
 
 add_goals([]).
 add_goals([goal(ID, Desc, Time) | Rest]) :-

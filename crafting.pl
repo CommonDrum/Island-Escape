@@ -12,7 +12,7 @@ recipe(bottleOfUnpurifiedWater, fire, [bottleOfPurifiedWater], [], 'You purify t
 recipe(axe, coconut, [food], [], 'You use the axe to open the coconut and create food.').
 
 % Hull recipe path.
-recipe(axe, palmTrees, [bark], [], 'You cut the palm tree and create a stick.').
+recipe(axe, palmTrees, [bark,coconut], [], 'You cut the palm tree and create a stick.').
 
 % Water recipe path.
 recipe(glassBottle, waterPool, [bottleOfUnpurifiedWater], [], 'You fill the glass bottle with water from the pool.').

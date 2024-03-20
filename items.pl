@@ -15,8 +15,13 @@ item(axe, none, 'Shiny Axe!', 'The axe is sharp and looks reliable.').
 item(vine, none, 'A vine.', 'The vine is long and strong. It could be useful for crafting.').
 
 % Item placements
-item(driftwood, beachSouth, 'You see a piece of driftwood on the beach.', 'The driftwood seems sturdy and could be useful.').
+item(stick, beachSouth, 'You see a hard stick on the ground.', 'The stick is sturdy and may be useful for crafting.').
+item(stick, jungleSouth, 'You see a hard stick on the ground.', 'The stick is sturdy and may be useful for crafting.').
+item(stick, jungleNorth, 'You see a hard stick on the ground.', 'The stick is sturdy and may be useful for crafting.').
 item(glassBottle, beachSouth, 'A glass bottle is lying on the sand.', 'The glass bottle contains a mysterious message inside.').
-item(oldBarrels, cellar, 'There are some old barrels in the cellar.', 'The barrels are empty and covered in cobwebs.').
-item(oldCrates, cellar, 'You notice a few old crates in the corner.', 'The crates contain some ancient artifacts.').
 item(textileSheet, beachSouth, 'A big textile sheet is stuck on a branch. It looks like ripped sail.', 'The sheet is big and not damaged. It sure will be useful for something.').
+
+item(t1,inventory, 'You spot a small flint stone.', 'The flint stone has sharp edges and could be used to start a fire.').
+item(t2,inventory, 'Coconuts are hanging from the trees.', 'The coconuts are ripe and can be eaten. But you need to find a way to open them.').
+item(t3, none , 'A cracked open coconut ready to eat.', 'The coconut is cracked open and ready to eat.').
+

@@ -1,7 +1,8 @@
 describe(Location) :-
-    describe_location(Location),        % Describe the location itself.
-    describe_objects(Location),         % Describe objects at the location.
-    describe_available_paths(Location). % List paths available from this location.
+    picture(Location),                  
+    describe_location(Location),       
+    describe_objects(Location),        
+    describe_available_paths(Location).
 
 describe_location(Location) :-
     location(Location, Description),
@@ -9,7 +10,7 @@ describe_location(Location) :-
 
 describe_objects(Location) :-
     (object(Name, Location, Description, _, _) ; item(Name, Location, Description, _)),
-    write(Description), write(' here ('), write(Name), write(').'), nl,
+    write(Description), write(' ('), write(Name), write(').'), nl,
     fail.
 describe_objects(_).
 

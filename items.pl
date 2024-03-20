@@ -9,8 +9,8 @@ item(coconut, none, 'Coconuts are hanging from the trees.', 'The coconuts are ri
 item(openc, none, 'A cracked open coconut ready to eat.', 'The coconut is cracked open and ready to eat.').
 item(stick, none, 'You see a hard stick on the ground.', 'The stick is sturdy and may be useful for crafting.').
 item(bigLeafs, none, 'There are many bushes with big leafs.', 'The leafs are big and can be used to make a shelter.').
-item(UnpurifiedWater, none, 'The water is not safe to drink. You need to purify it first.', '').
-item(PurifiedWater, none, 'The water is safe to drink.', 'You should find a way to make this water safe to drink.').
+item(bottleOfUnpurifiedWater, none, 'The water is not safe to drink. You need to purify it first.', '').
+item(bottleOfPurifiedWater, none, 'The water is safe to drink.', 'You should find a way to make this water safe to drink.').
 item(axe, none, 'Shiny Axe!', 'The axe is sharp and looks reliable.').
 item(vine, none, 'A vine.', 'The vine is long and strong. It could be useful for crafting.').
 
@@ -20,8 +20,3 @@ item(glassBottle, beachSouth, 'A glass bottle is lying on the sand.', 'The glass
 item(oldBarrels, cellar, 'There are some old barrels in the cellar.', 'The barrels are empty and covered in cobwebs.').
 item(oldCrates, cellar, 'You notice a few old crates in the corner.', 'The crates contain some ancient artifacts.').
 item(textileSheet, beachSouth, 'A big textile sheet is stuck on a branch. It looks like ripped sail.', 'The sheet is big and not damaged. It sure will be useful for something.').
-
-% Additional item placements
-item(1, beachSouth, '', '').
-item(2, beachNorth, '', '').
-item(3, none, '', '').

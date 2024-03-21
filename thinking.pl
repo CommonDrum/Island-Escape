@@ -10,6 +10,7 @@ think :-
     writeln(Thought),
     add_goals(Goals),
     retract(to_think(Thought, Goals)),
+<<<<<<< HEAD
     fail.
 
 think :- 
@@ -28,6 +29,10 @@ fulill_goal(Goal) :-
     retract(goal(Goal, Description, Value)).
 
 fulill_goal.
+=======
+    logic,
+    !.
+>>>>>>> 9a4acf7965ff74c8c3d568251fc55949ea05450e
 
 add_goals([]).
 add_goals([goal(ID, Desc, Time) | Rest]) :-

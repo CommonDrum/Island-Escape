@@ -1,0 +1,407 @@
+ swipl game.pl
+Welcome to SWI-Prolog (threaded, 64 bits, version 9.2.2)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit https://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- start.
+Welcome to the text-based adventure game!
+Use the "help" command to see available commands.
+Available commands:
+inspect(Object/Item) - Inspect an object/item.
+take(Item) - Take an item.
+move(Destination) - Move to a new location.
+look - Look around the current location.
+inventory - List the items in your inventory.
+craft(Item) - Craft an item.
+commands - List available commands.
+You have 50 steps remaining.
+_\/_                                  _\/_
+/o\\                                   //o\
+ |                                      |
+_|_______________________________________|__ 
+You are at South Beach: You stand on the southern shore of the island, where your ship met its unfortunate fate. The powerful waves crash against the coastline, and the strong wind whips through your hair. Scattered around the beach are bits and pieces of the wrecked ship, but nothing seems particularly useful for your survival. The vast expanse of the ocean stretches out before you, a reminder of the challenges that lie ahead.
+You see a hard stick on the ground. (stick).
+A glass bottle is lying on the sand. (glassBottle).
+A big textile sheet is stuck on a branch. It looks like ripped sail. (sheet).
+You can go to: 
+- beachNorth
+- jungleSouth
+true.
+
+?- take(stick).
+You picked up the stick.
+You have 49 steps remaining.
+_\/_                                  _\/_
+/o\\                                   //o\
+ |                                      |
+_|_______________________________________|__ 
+You are at South Beach: You stand on the southern shore of the island, where your ship met its unfortunate fate. The powerful waves crash against the coastline, and the strong wind whips through your hair. Scattered around the beach are bits and pieces of the wrecked ship, but nothing seems particularly useful for your survival. The vast expanse of the ocean stretches out before you, a reminder of the challenges that lie ahead.
+A glass bottle is lying on the sand. (glassBottle).
+A big textile sheet is stuck on a branch. It looks like ripped sail. (sheet).
+You can go to: 
+- beachNorth
+- jungleSouth
+true.
+
+?- take(glassBottle).
+You picked up the glassBottle.
+You have 48 steps remaining.
+_\/_                                  _\/_
+/o\\                                   //o\
+ |                                      |
+_|_______________________________________|__ 
+You are at South Beach: You stand on the southern shore of the island, where your ship met its unfortunate fate. The powerful waves crash against the coastline, and the strong wind whips through your hair. Scattered around the beach are bits and pieces of the wrecked ship, but nothing seems particularly useful for your survival. The vast expanse of the ocean stretches out before you, a reminder of the challenges that lie ahead.
+A big textile sheet is stuck on a branch. It looks like ripped sail. (sheet).
+You can go to: 
+- beachNorth
+- jungleSouth
+true.
+
+?- inventory.
+stick
+glassBottle
+false.
+
+?- take(sheet).
+You picked up the sheet.
+You have 47 steps remaining.
+_\/_                                  _\/_
+/o\\                                   //o\
+ |                                      |
+_|_______________________________________|__ 
+You are at South Beach: You stand on the southern shore of the island, where your ship met its unfortunate fate. The powerful waves crash against the coastline, and the strong wind whips through your hair. Scattered around the beach are bits and pieces of the wrecked ship, but nothing seems particularly useful for your survival. The vast expanse of the ocean stretches out before you, a reminder of the challenges that lie ahead.
+You can go to: 
+- beachNorth
+- jungleSouth
+true.
+
+?- move(jungleSouth).
+           _  _             _  _
+  .       /\/%\       .   /%\/%\     .
+      __.<\%#//\,_       <%%#/%%\,__  .
+.    <%#/|\%%%#///\    /^%%#%%\///%#\\
+      ""/%/""\ \""//|   |/""'/ /\//""//'
+ .     L/'`   \ \  `    "   / /  ```
+        `      \ \     .   / /       .
+ .       .      \ \       / /  .
+        .        \ \     / /          .
+   .      .    ..:\ \:::/ /:.     .     .
+______________/ \__;\___/\;_/\________________________________
+YwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYw
+You are at South Jungle: As you venture into the southern part of the island's jungle, you find yourself surrounded by dense vegetation. The air is humid, and the canopy above filters the sunlight, creating a green-tinted ambiance. The undergrowth is rich with various plants, vines, and small trees, providing a sense of lushness and potential resources for your survival.
+There is a large rock nearby. (largeRock).
+You see a small pool of water. (waterPool).
+You see a bush with big leafs. (bush).
+You see a hard stick on the ground. (stick).
+You can go to: 
+- jungleNorth
+- beachSouth
+You have 46 steps remaining.
+           _  _             _  _
+  .       /\/%\       .   /%\/%\     .
+      __.<\%#//\,_       <%%#/%%\,__  .
+.    <%#/|\%%%#///\    /^%%#%%\///%#\\
+      ""/%/""\ \""//|   |/""'/ /\//""//'
+ .     L/'`   \ \  `    "   / /  ```
+        `      \ \     .   / /       .
+ .       .      \ \       / /  .
+        .        \ \     / /          .
+   .      .    ..:\ \:::/ /:.     .     .
+______________/ \__;\___/\;_/\________________________________
+YwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYw
+You are at South Jungle: As you venture into the southern part of the island's jungle, you find yourself surrounded by dense vegetation. The air is humid, and the canopy above filters the sunlight, creating a green-tinted ambiance. The undergrowth is rich with various plants, vines, and small trees, providing a sense of lushness and potential resources for your survival.
+There is a large rock nearby. (largeRock).
+You see a small pool of water. (waterPool).
+You see a bush with big leafs. (bush).
+You see a hard stick on the ground. (stick).
+You can go to: 
+- jungleNorth
+- beachSouth
+true.
+
+?- craft(galassBottle, waterPool).
+You cannot craft these items together. They are not in the same location or your inventory.
+You cannot craft these items together.
+true.
+
+?- craft(glassBottle, waterPool).
+You fill the glass bottle with water from the pool.
+true.
+
+?- look.
+           _  _             _  _
+  .       /\/%\       .   /%\/%\     .
+      __.<\%#//\,_       <%%#/%%\,__  .
+.    <%#/|\%%%#///\    /^%%#%%\///%#\\
+      ""/%/""\ \""//|   |/""'/ /\//""//'
+ .     L/'`   \ \  `    "   / /  ```
+        `      \ \     .   / /       .
+ .       .      \ \       / /  .
+        .        \ \     / /          .
+   .      .    ..:\ \:::/ /:.     .     .
+______________/ \__;\___/\;_/\________________________________
+YwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYw
+You are at South Jungle: As you venture into the southern part of the island's jungle, you find yourself surrounded by dense vegetation. The air is humid, and the canopy above filters the sunlight, creating a green-tinted ambiance. The undergrowth is rich with various plants, vines, and small trees, providing a sense of lushness and potential resources for your survival.
+There is a large rock nearby. (largeRock).
+You see a small pool of water. (waterPool).
+You see a bush with big leafs. (bush).
+You see a hard stick on the ground. (stick).
+You can go to: 
+- jungleNorth
+- beachSouth
+true.
+
+?- inspect(largeRock).
+You come closer to the rock and discover a bunch of flintstones laying around it.
+true.
+
+?- inspect(bush).
+You strip the bush out of its leafs and gather some sticks.
+true.
+
+?- take(stick).
+You picked up the stick.
+You have 45 steps remaining.
+           _  _             _  _
+  .       /\/%\       .   /%\/%\     .
+      __.<\%#//\,_       <%%#/%%\,__  .
+.    <%#/|\%%%#///\    /^%%#%%\///%#\\
+      ""/%/""\ \""//|   |/""'/ /\//""//'
+ .     L/'`   \ \  `    "   / /  ```
+        `      \ \     .   / /       .
+ .       .      \ \       / /  .
+        .        \ \     / /          .
+   .      .    ..:\ \:::/ /:.     .     .
+______________/ \__;\___/\;_/\________________________________
+YwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYw
+You are at South Jungle: As you venture into the southern part of the island's jungle, you find yourself surrounded by dense vegetation. The air is humid, and the canopy above filters the sunlight, creating a green-tinted ambiance. The undergrowth is rich with various plants, vines, and small trees, providing a sense of lushness and potential resources for your survival.
+There is a large rock nearby. (largeRock).
+You see a small pool of water. (waterPool).
+You see a bush with big leafs. (bush).
+You can go to: 
+- jungleNorth
+- beachSouth
+true.
+
+?- move(jungleNorth).
+           _  _             _  _
+  .       /\/%\       .   /%\/%\     .
+      __.<\%#//\,_       <%%#/%%\,__  .
+.    <%#/|\%%%#///\    /^%%#%%\///%#\\
+      ""/%/""\ \""//|   |/""'/ /\//""//'
+ .     L/'`   \ \  `    "   / /  ```
+        `      \ \     .   / /       .
+ .       .      \ \       / /  .
+        .        \ \     / /          .
+   .      .    ..:\ \:::/ /:.     .     .
+______________/ \__;\___/\;_/\________________________________
+YwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYw
+You are at North Jungle: You enter the heart of the island's jungle, where towering palm trees dominate the landscape. The air is thick with the scent of tropical foliage, and the sounds of exotic birds echo through the dense greenery. The jungle floor is littered with fallen leaves and branches, and the occasional clearing offers a momentary respite from the oppressive heat. This untamed wilderness holds both beauty and hidden dangers.
+You see a few palm trees. (palmTrees).
+You see some vines hanging from the trees. (vines).
+You see a hard stick on the ground. (stick).
+You can go to: 
+- jungleSouth
+- beachNorth
+You have 44 steps remaining.
+           _  _             _  _
+  .       /\/%\       .   /%\/%\     .
+      __.<\%#//\,_       <%%#/%%\,__  .
+.    <%#/|\%%%#///\    /^%%#%%\///%#\\
+      ""/%/""\ \""//|   |/""'/ /\//""//'
+ .     L/'`   \ \  `    "   / /  ```
+        `      \ \     .   / /       .
+ .       .      \ \       / /  .
+        .        \ \     / /          .
+   .      .    ..:\ \:::/ /:.     .     .
+______________/ \__;\___/\;_/\________________________________
+YwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYw
+You are at North Jungle: You enter the heart of the island's jungle, where towering palm trees dominate the landscape. The air is thick with the scent of tropical foliage, and the sounds of exotic birds echo through the dense greenery. The jungle floor is littered with fallen leaves and branches, and the occasional clearing offers a momentary respite from the oppressive heat. This untamed wilderness holds both beauty and hidden dangers.
+You see a few palm trees. (palmTrees).
+You see some vines hanging from the trees. (vines).
+You see a hard stick on the ground. (stick).
+You can go to: 
+- jungleSouth
+- beachNorth
+true.
+
+?- take(stick).
+You picked up the stick.
+You have 43 steps remaining.
+           _  _             _  _
+  .       /\/%\       .   /%\/%\     .
+      __.<\%#//\,_       <%%#/%%\,__  .
+.    <%#/|\%%%#///\    /^%%#%%\///%#\\
+      ""/%/""\ \""//|   |/""'/ /\//""//'
+ .     L/'`   \ \  `    "   / /  ```
+        `      \ \     .   / /       .
+ .       .      \ \       / /  .
+        .        \ \     / /          .
+   .      .    ..:\ \:::/ /:.     .     .
+______________/ \__;\___/\;_/\________________________________
+YwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYwYw
+You are at North Jungle: You enter the heart of the island's jungle, where towering palm trees dominate the landscape. The air is thick with the scent of tropical foliage, and the sounds of exotic birds echo through the dense greenery. The jungle floor is littered with fallen leaves and branches, and the occasional clearing offers a momentary respite from the oppressive heat. This untamed wilderness holds both beauty and hidden dangers.
+You see a few palm trees. (palmTrees).
+You see some vines hanging from the trees. (vines).
+You can go to: 
+- jungleSouth
+- beachNorth
+true.
+
+?- inspect(vines).
+You gather some vines.
+true.
+
+?- craft(stick,flintstone).
+You attach the flint stone to the stick and create an axe.
+true.
+
+?- craft(axe,palmTrees).
+You cut the palm tree and create a stick.
+true.
+
+?- inventory.
+stick
+sheet
+bottleOfUnpurifiedWater
+flintstone
+leafs
+stick
+stick
+vine
+vine
+axe
+bark
+false.
+
+?- craft(bark, vine).
+You attach the bark to the vine and create a hull.
+true.
+
+?- craft(stick, sheet).
+You attach the sheet to the stick and create a sail.
+true.
+
+?- craft(vine, leafs).
+You sew the leafs together and create a shelter.
+true.
+
+?- move(beachNorth).
+_\/_                 |                _\/_
+/o\\             \       /            //o\
+ |                 .---.                  |
+_|_______     --  /     \  --     ______|__
+         `~^~^~^~^~^~^~^~^~^~^~^~` jgs
+You are at North Beach: You find yourself in a serene oasis on the north side of the island. The gentle waves lap against the shore, creating a soothing rhythm. Palm trees sway in the warm breeze, providing shade and a sense of tranquility. The soft sand beneath your feet invites you to relax and take in the peaceful surroundings.
+There is a small cave-like structure in the rocks. (cave).
+Small bay gliters in the sun. (bay).
+You can go to: 
+- jungleNorth
+- beachSouth
+You have 42 steps remaining.
+_\/_                 |                _\/_
+/o\\             \       /            //o\
+ |                 .---.                  |
+_|_______     --  /     \  --     ______|__
+         `~^~^~^~^~^~^~^~^~^~^~^~` jgs
+You are at North Beach: You find yourself in a serene oasis on the north side of the island. The gentle waves lap against the shore, creating a soothing rhythm. Palm trees sway in the warm breeze, providing shade and a sense of tranquility. The soft sand beneath your feet invites you to relax and take in the peaceful surroundings.
+There is a small cave-like structure in the rocks. (cave).
+Small bay gliters in the sun. (bay).
+You can go to: 
+- jungleNorth
+- beachSouth
+true.
+
+?- inspect(cave).
+It looks like a good place to stay, but it lacks come warmth...
+true.
+
+?- inspect(bay).
+New Ideas in you head!
+The water is calm and clear. You think it that if you had a boat, you could sail away from here.
+true.
+
+?- think.
+Water and food should be my priority. I should look around for some.
+true 
+Unknown action:  for help)
+Action? 
+Unknown action: [ (h for help)
+Action? 
+Unknown action: A (h for help)
+Action? 
+Unknown action:  for help)
+Action? 
+Unknown action: [ (h for help)
+Action? 
+Unknown action: A (h for help)
+Action? .
+
+?- craft(stick,cave).
+You gather some sticks and create a fireplace.
+true.
+
+?- craft(flintstone,cave).
+You cannot craft these items together.
+true.
+
+?- craft(flintstone,fireplace).
+You set the fireplace on fire and create a fire.
+true.
+
+?- inventory.
+sheet
+bottleOfUnpurifiedWater
+stick
+vine
+axe
+bark
+hull
+sail
+shelter
+false.
+
+?- craft(fire, bottleOfUnpurifiedWater).
+You purify the water by boiling it.
+true.
+
+?- look.
+_\/_                 |                _\/_
+/o\\             \       /            //o\
+ |                 .---.                  |
+_|_______     --  /     \  --     ______|__
+         `~^~^~^~^~^~^~^~^~^~^~^~` jgs
+You are at North Beach: You find yourself in a serene oasis on the north side of the island. The gentle waves lap against the shore, creating a soothing rhythm. Palm trees sway in the warm breeze, providing shade and a sense of tranquility. The soft sand beneath your feet invites you to relax and take in the peaceful surroundings.
+There is a small cave-like structure in the rocks. (cave).
+Small bay gliters in the sun. (bay).
+Crafted object (fireplace).
+Crafted object (fire).
+You can go to: 
+- jungleNorth
+- beachSouth
+true.
+
+?- craft(axe,coconut).
+You use the axe to open the coconut and create food.
+true.
+
+?- look.
+_\/_                 |                _\/_
+/o\\             \       /            //o\
+ |                 .---.                  |
+_|_______     --  /     \  --     ______|__
+         `~^~^~^~^~^~^~^~^~^~^~^~` jgs
+You are at North Beach: You find yourself in a serene oasis on the north side of the island. The gentle waves lap against the shore, creating a soothing rhythm. Palm trees sway in the warm breeze, providing shade and a sense of tranquility. The soft sand beneath your feet invites you to relax and take in the peaceful surroundings.
+There is a small cave-like structure in the rocks. (cave).
+Small bay gliters in the sun. (bay).
+You can go to: 
+- jungleNorth
+- beachSouth
+true.
+
+?- build_raft.
+You have escaped the island! You win!
+true.

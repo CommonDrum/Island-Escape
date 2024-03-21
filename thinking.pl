@@ -15,10 +15,7 @@ think :-
 
 add_goals([]).
 add_goals([goal(ID, Desc, Time) | Rest]) :-
-    (   goal(ID, _, _) -> 
-        true ; 
-        assertz(goal(ID, Desc, Time))
-    ),
+    assertz(goal(ID, Desc, Time))
     add_goals(Rest).
 
 see_goals :-

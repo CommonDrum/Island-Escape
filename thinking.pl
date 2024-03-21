@@ -9,7 +9,25 @@ think :-
     to_think(Thought, Goals),
     writeln(Thought),
     add_goals(Goals),
-    retract(to_think(Thought, Goals)).
+    retract(to_think(Thought, Goals)),
+    fail.
+
+think :- 
+    findall(D, goal(_, D, _), L),
+    write(L), nl.
+
+
+fulill_goal(Goal) :-
+    goal(Goal, Description, Value),
+    writeln('You have fulfilled a goal!'),
+    writeln(Description),
+    steps_remaining(X),
+    Y is X + Value,
+    retract(steps_remaining(X)),
+    assertz(steps_remaining(Y)),
+    retract(goal(Goal, Description, Value)).
+
+fulill_goal.
 
 add_goals([]).
 add_goals([goal(ID, Desc, Time) | Rest]) :-
